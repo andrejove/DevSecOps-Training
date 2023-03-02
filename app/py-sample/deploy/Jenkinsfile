@@ -11,9 +11,9 @@ pipeline {
         string(name: 'appEndpoint', defaultValue: 'gosip-app-dev.apps.lab.i3datacenter.my.id', description: 'Application address that exposed by route for Dynamic Application Security Test')    
     }
     environment {
-        REGISTRY_CRED = credentials('i3-internal-registry-cred')
-        CLUSTER_TKN = credentials('i3-ocp-deployer-tkn')
-        SQ_TKN= credentials('nexus')
+        REGISTRY_CRED = credentials('nexus')
+        CLUSTER_TKN = credentials('ocp')
+        SQ_TKN= credentials('sonar')
     }
     stages {
         stage('Sonarqube - Static application security testing process') {
