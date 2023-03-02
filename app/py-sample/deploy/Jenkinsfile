@@ -4,7 +4,7 @@ pipeline {
         string(name: 'Dockerfile', defaultValue: 'app/py-sample/deploy/Dockerfile', description: 'Dockerfile path for buildning the app')
         string(name: 'SqProject', defaultValue: 'tesCICD', description: 'SQ project key based on your project')
         string(name: 'SqServer', defaultValue: 'https://student09.lab.i-3.my.id:9000', description: 'SQ server address')
-        string(name: 'ImageRegistry', defaultValue: 'registry.i-3.my.id:5000:1', description: 'Image Registry address')
+        string(name: 'ImageRegistry', defaultValue: 'registry.i-3.my.id:5000', description: 'Image Registry address')
         string(name: 'OcpCluster', defaultValue: 'https://api.lab.i3datacenter.my.id:6443', description: 'Openshift Cluster API')
         string(name: 'ocpProject', defaultValue: 'student09-insecure', description: 'Project where app to be deployed')
         string(name: 'manifestFile', defaultValue: 'app/py-sample/deploy/manifest/dev-deployment.yaml', description: 'Path of manifest file to be deployed') 
@@ -29,7 +29,7 @@ pipeline {
         stage('Build Container Image') {
             steps {
                 sh('docker image rm $ImageRegistry/devsecops:v${BUILD_NUMBER} || echo "No existing image found"')
-                sh('docker build --no-cache -t $ImageRegistry/devsecops:v${BUILD_NUMBER} -f $Dockerfile app/py-sample')
+                sh('docker build --no-cache -t $ImageRegistry/student09/devsecops:v${BUILD_NUMBER} -f $Dockerfile app/py-sample')
             }
         }
         stage('Trivy - Container security scan') {
