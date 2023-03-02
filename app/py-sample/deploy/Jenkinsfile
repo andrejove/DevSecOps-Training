@@ -13,7 +13,7 @@ pipeline {
     environment {
         REGISTRY_CRED = credentials('i3-internal-registry-cred')
         CLUSTER_TKN = credentials('i3-ocp-deployer-tkn')
-        SQ_TKN= credentials('i3-sq-tkn')
+        SQ_TKN= credentials('nexus')
     }
     stages {
         stage('Sonarqube - Static application security testing process') {
