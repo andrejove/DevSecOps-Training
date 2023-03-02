@@ -6,7 +6,7 @@ pipeline {
         string(name: 'SqServer', defaultValue: 'https://student09.lab.i-3.my.id:9000', description: 'SQ server address')
         string(name: 'ImageRegistry', defaultValue: 'registry.i-3.my.id:5000:1', description: 'Image Registry address')
         string(name: 'OcpCluster', defaultValue: 'https://api.lab.i3datacenter.my.id:6443', description: 'Openshift Cluster API')
-        string(name: 'ocpProject', defaultValue: 'student09-secure', description: 'Project where app to be deployed')
+        string(name: 'ocpProject', defaultValue: 'student09-insecure', description: 'Project where app to be deployed')
         string(name: 'manifestFile', defaultValue: 'app/py-sample/deploy/manifest/dev-deployment.yaml', description: 'Path of manifest file to be deployed') 
         string(name: 'appEndpoint', defaultValue: 'gosip-app-dev.apps.lab.i3datacenter.my.id', description: 'Application address that exposed by route for Dynamic Application Security Test')    
     }
