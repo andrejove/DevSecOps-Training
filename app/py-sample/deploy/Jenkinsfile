@@ -13,7 +13,7 @@ pipeline {
     environment {
         REGISTRY_CRED = credentials('nexus')
         CLUSTER_TKN = credentials('ocp')
-        SQ_TKN= credentials('sonar')
+        SQ_TKN= credentials('Sonar')
     }
     stages {
         stage('Sonarqube - Static application security testing process') {
